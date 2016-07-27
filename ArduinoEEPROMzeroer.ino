@@ -7,26 +7,27 @@
 
 #include <EEPROM.h>
 
-int addr   = 0;
+int addr = 0;
 byte zero = 0;
 
 void setup() {
+  delay(1000);
   Serial.begin(9600);
   while (!Serial)
   {
     ; // wait for serial port...
   }
 
-Serial.println(F("==EEPROM zeroer=="));
+  Serial.println(F("==EEPROM zeroer=="));
   for (addr = 0; addr < EEPROM.length(); ++addr)
   {
-    EEPROM.write(addr, zero);
+    EEPROM.update(addr, zero);
   }
-  Serial.print("Bytes written: ")
+  Serial.print("Bytes written: ");
   Serial.println(addr);
   Serial.println(F("==READY=="));
 }
 
 void loop() {
-  // no code here
+  ; // no code here
 }
