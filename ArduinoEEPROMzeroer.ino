@@ -13,14 +13,12 @@ byte zero = 0;
 void setup() {
   delay(1000);
   Serial.begin(9600);
-  while (!Serial)
-  {
+  while (!Serial) {
     ; // wait for serial port...
   }
 
   Serial.println(F("==EEPROM zeroer=="));
-  for (addr = 0; addr < EEPROM.length(); ++addr)
-  {
+  for (addr = 0; addr < EEPROM.length(); ++addr) {
     EEPROM.update(addr, zero);
   }
   Serial.print("Bytes written: ");
